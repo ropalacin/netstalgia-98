@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 const contacts = [
   { name: "María_98", status: "online", avatar: "🙂" },
@@ -61,43 +61,74 @@ const conversations = {
 
 export default function Messenger() {
   const [activeChat, setActiveChat] = useState(null);
-  const [visibleMessages, setVisibleMessages] = useState([]);
+  const [chatHistory, setChatHistory] = useState({});
   const [typing, setTyping] = useState(false);
   const messagesEndRef = useRef(null);
   const timeoutRef = useRef(null);
+  const activeChatRef = useRef(null);
 
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
+  const clearTimers = useCallback(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
   }, []);
 
   useEffect(() => {
+    return clearTimers;
+  }, [clearTimers]);
+
+  useEffect(() => {
+    activeChatRef.current = activeChat;
     if (!activeChat) return;
 
-    const msgs = conversations[activeChat] || [];
-    setVisibleMessages([]);
+    const alreadyShown = chatHistory[activeChat]?.length || 0;
+    const allMsgs = conversations[activeChat] || [];
 
-    let index = 0;
+    if (alreadyShown >= allMsgs.length) {
+      setTyping(false);
+      return;
+    }
+
+    let index = alreadyShown;
+    let cancelled = false;
+
     function showNext() {
-      if (index < msgs.length) {
-        setTyping(true);
-        const delay = msgs[index].from === "system" ? 1200 : 600 + Math.random() * 800;
-        timeoutRef.current = setTimeout(() => {
-          setTyping(false);
-          setVisibleMessages((prev) => [...prev, msgs[index]]);
-          index++;
-          timeoutRef.current = setTimeout(showNext, 300);
-        }, delay);
+      if (cancelled || index >= allMsgs.length) {
+        if (!cancelled) setTyping(false);
+        return;
       }
+      if (activeChatRef.current !== activeChat) return;
+
+      setTyping(true);
+      const delay = allMsgs[index].from === "system" ? 1200 : 600 + Math.random() * 800;
+
+      timeoutRef.current = setTimeout(() => {
+        if (cancelled || activeChatRef.current !== activeChat) return;
+
+        const msgToAdd = allMsgs[index];
+        setChatHistory((prev) => ({
+          ...prev,
+          [activeChat]: [...(prev[activeChat] || []), msgToAdd],
+        }));
+        setTyping(false);
+        index++;
+
+        if (index < allMsgs.length) {
+          timeoutRef.current = setTimeout(showNext, 300);
+        }
+      }, delay);
     }
 
     timeoutRef.current = setTimeout(showNext, 500);
 
     return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      cancelled = true;
+      clearTimers();
     };
-  }, [activeChat]);
+  }, [activeChat, clearTimers]);
+
+  const visibleMessages = activeChat ? (chatHistory[activeChat] || []) : [];
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -124,7 +155,11 @@ export default function Messenger() {
         {contacts.map((c) => (
           <div
             key={c.name}
-            onClick={() => setActiveChat(c.name)}
+            onClick={() => {
+              clearTimers();
+              setTyping(false);
+              setActiveChat(c.name);
+            }}
             style={{
               padding: "6px 8px",
               cursor: "pointer",
