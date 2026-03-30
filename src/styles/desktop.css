@@ -9,11 +9,12 @@ html, body, #root {
   overflow: hidden;
 }
 
-/* Desktop */
+/* Desktop — Windows XP "Bliss" wallpaper */
 .desktop {
   width: 100vw;
   height: 100vh;
-  background-color: #008080;
+  background: url("https://upload.wikimedia.org/wikipedia/en/2/27/Bliss_%28Windows_XP%29.png") center/cover no-repeat;
+  background-color: #3a6ea5;
   position: relative;
   display: flex;
   flex-direction: column;

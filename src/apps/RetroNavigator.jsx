@@ -24,7 +24,8 @@ const pages = {
         <p style="font-size: 11px;">
           <a href="#" style="color: blue;">Sign my Guestbook!</a> |
           <a href="#" style="color: blue;">Webring</a> |
-          <a href="#" style="color: blue;">Links</a>
+          <a href="#" style="color: blue;">Links</a> |
+          <a href="#" style="color: blue;">🇦🇷 Taringa!</a>
         </p>
       </div>
     `,
@@ -137,6 +138,134 @@ const pages = {
   },
 };
 
+pages["taringa"] = {
+  title: "Taringa! - Inteligencia Colectiva",
+  content: `
+    <div style="font-family: Verdana, Arial, sans-serif; font-size: 12px; background: #f4f4f4; min-height: 100%;">
+      <!-- Header -->
+      <div style="background: #1a6496; color: white; padding: 8px 16px; display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <b style="font-size: 18px; letter-spacing: -1px;">T!</b>
+          <span style="font-size: 14px; margin-left: 8px;">Taringa!</span>
+          <span style="font-size: 10px; margin-left: 4px; opacity: 0.8;">Inteligencia Colectiva</span>
+        </div>
+        <div style="font-size: 10px;">
+          Bienvenido, <b>user_netstalgia</b> | <a href="#" style="color: #ccc;">Salir</a>
+        </div>
+      </div>
+
+      <!-- Posts -->
+      <div style="max-width: 600px; margin: 12px auto; display: flex; flex-direction: column; gap: 8px;">
+
+        <div style="background: white; border: 1px solid #ddd; padding: 12px;">
+          <div style="display: flex; gap: 8px; align-items: flex-start;">
+            <span style="font-size: 24px;">💿</span>
+            <div>
+              <a href="#" style="color: #1a6496; font-size: 13px; font-weight: bold; text-decoration: none;">Megapost: 200 discos que TENES que escuchar antes de morir [Descarga directa]</a>
+              <div style="font-size: 10px; color: #888; margin-top: 4px;">
+                por <b style="color: #1a6496;">el_pistolero_89</b> | hace 3 horas | 847 puntos
+              </div>
+              <div style="font-size: 11px; color: #555; margin-top: 6px;">
+                Buenas lince! Aca les traigo tremendo megapost con todos los discos esenciales. Van a encontrar de todo: Rock, Metal, Punk, Grunge... Si te gusta, deja puntos!
+              </div>
+              <div style="margin-top: 8px; font-size: 10px; color: #888;">
+                💬 234 comentarios | ⭐ +847 | 🔄 Compartir
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: white; border: 1px solid #ddd; padding: 12px;">
+          <div style="display: flex; gap: 8px; align-items: flex-start;">
+            <span style="font-size: 24px;">🔧</span>
+            <div>
+              <a href="#" style="color: #1a6496; font-size: 13px; font-weight: bold; text-decoration: none;">Como armar tu PC gamer con $500 pesos [Tutorial paso a paso]</a>
+              <div style="font-size: 10px; color: #888; margin-top: 4px;">
+                por <b style="color: #1a6496;">mastercraft_2003</b> | hace 5 horas | 423 puntos
+              </div>
+              <div style="font-size: 11px; color: #555; margin-top: 6px;">
+                Hola taringueros! Hoy les ense\u00f1o como armarse una compu gamer gastando lo minimo. El truco es comprar las partes por separado en Galeria Jardin...
+              </div>
+              <div style="margin-top: 8px; font-size: 10px; color: #888;">
+                💬 156 comentarios | ⭐ +423 | 🔄 Compartir
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: white; border: 1px solid #ddd; padding: 12px;">
+          <div style="display: flex; gap: 8px; align-items: flex-start;">
+            <span style="font-size: 24px;">📸</span>
+            <div>
+              <a href="#" style="color: #1a6496; font-size: 13px; font-weight: bold; text-decoration: none;">Miren lo que encontre en el cyber de mi barrio [FOTOS]</a>
+              <div style="font-size: 10px; color: #888; margin-top: 4px;">
+                por <b style="color: #1a6496;">polentero_full</b> | hace 8 horas | 312 puntos
+              </div>
+              <div style="font-size: 11px; color: #555; margin-top: 6px;">
+                Gente no van a creer esto. Fui al cyber de la esquina y el chabon tenia pegado en la pared un cartel que decia "PROHIBIDO TARINGA"...
+              </div>
+              <div style="margin-top: 8px; font-size: 10px; color: #888;">
+                💬 89 comentarios | ⭐ +312 | 🔄 Compartir
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: white; border: 1px solid #ddd; padding: 12px;">
+          <div style="display: flex; gap: 8px; align-items: flex-start;">
+            <span style="font-size: 24px;">🎮</span>
+            <div>
+              <a href="#" style="color: #1a6496; font-size: 13px; font-weight: bold; text-decoration: none;">Top 10 juegos que jugabas en el ciber cuando no tenias PC</a>
+              <div style="font-size: 10px; color: #888; margin-top: 4px;">
+                por <b style="color: #1a6496;">counter_strike_fan</b> | hace 12 horas | 1.2K puntos
+              </div>
+              <div style="font-size: 11px; color: #555; margin-top: 6px;">
+                1. Counter Strike 1.6 (obvio)<br/>
+                2. Age of Empires II<br/>
+                3. GTA San Andreas<br/>
+                4. Mu Online<br/>
+                Los que iban al ciber a jugar al counter, den\u0020puntos...
+              </div>
+              <div style="margin-top: 8px; font-size: 10px; color: #888;">
+                💬 567 comentarios | ⭐ +1.2K | 🔄 Compartir
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #fff8dc; border: 1px solid #ddd; padding: 12px;">
+          <div style="display: flex; gap: 8px; align-items: flex-start;">
+            <span style="font-size: 24px;">💡</span>
+            <div>
+              <a href="#" style="color: #1a6496; font-size: 13px; font-weight: bold; text-decoration: none;">Hoy me di cuenta que Taringa era nuestra version de internet</a>
+              <div style="font-size: 10px; color: #888; margin-top: 4px;">
+                por <b style="color: #1a6496;">nostalgia_2024</b> | hace 1 dia | 2.4K puntos
+              </div>
+              <div style="font-size: 11px; color: #555; margin-top: 6px;">
+                Piensen en esto: mientras el mundo usaba Reddit, Digg, y forums en ingles, nosotros teniamos Taringa. Era todo en espa\u00f1ol, era nuestro, era un quilombo hermoso. Habia posts de todo: tutoriales para crackear el Photoshop, megaposts de musica, memes antes de que se llamaran memes. Era la inteligencia colectiva de verdad. No era perfecto pero era NUESTRO.
+              </div>
+              <div style="margin-top: 8px; font-size: 10px; color: #888;">
+                💬 1.2K comentarios | ⭐ +2.4K | 🔄 Compartir
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar-style bottom -->
+      <div style="max-width: 600px; margin: 0 auto 20px; background: white; border: 1px solid #ddd; padding: 12px;">
+        <div style="font-size: 11px; color: #1a6496; font-weight: bold; margin-bottom: 8px;">TOP USERS DE HOY</div>
+        <div style="font-size: 11px; color: #555;">
+          1. el_pistolero_89 - Great Master 🏆<br/>
+          2. counter_strike_fan - Gold User ⭐<br/>
+          3. polentero_full - New Full User 🔰<br/>
+        </div>
+      </div>
+    </div>
+  `,
+};
+
 const pageKeys = Object.keys(pages);
 
 export default function RetroNavigator() {
@@ -156,6 +285,7 @@ export default function RetroNavigator() {
         cost: "http://www.netstalgia.net/cost-of-access",
         languages: "http://www.netstalgia.net/languages",
         divide: "http://www.netstalgia.net/digital-divide",
+        taringa: "http://www.taringa.net/",
       };
       setAddressBar(urls[pageId] || "http://www.netstalgia.net/");
       const newHistory = [...history.slice(0, historyIndex + 1), pageId];
@@ -188,6 +318,7 @@ export default function RetroNavigator() {
     else if (text.includes("Cost")) navigateTo("cost");
     else if (text.includes("Languages")) navigateTo("languages");
     else if (text.includes("Digital Divide")) navigateTo("divide");
+    else if (text.includes("Taringa")) navigateTo("taringa");
     else if (text.includes("Back to Home")) navigateTo("home");
   }
 

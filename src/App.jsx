@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import "98.css";
 import "./styles/desktop.css";
 
@@ -6,6 +6,7 @@ import DesktopIcon from "./components/DesktopIcon";
 import Taskbar from "./components/Taskbar";
 import StartMenu from "./components/StartMenu";
 import Window from "./components/Window";
+import NotRespondingDialog from "./components/NotRespondingDialog";
 import FileExplorer from "./apps/FileExplorer";
 import RetroNavigator from "./apps/RetroNavigator";
 import Messenger from "./apps/Messenger";
@@ -51,6 +52,25 @@ let windowCounter = 0;
 export default function App() {
   const [windows, setWindows] = useState([]);
   const [startOpen, setStartOpen] = useState(false);
+  const [notResponding, setNotResponding] = useState(null);
+  const errorShownRef = useRef(false);
+
+  // Show "not responding" dialog once, randomly between 20-60s after first window opens
+  useEffect(() => {
+    if (windows.length === 0 || errorShownRef.current) return;
+    const delay = 20000 + Math.random() * 40000;
+    const timer = setTimeout(() => {
+      if (errorShownRef.current) return;
+      errorShownRef.current = true;
+      // Pick a random open window
+      const openWindows = windows.filter((w) => !w.minimized);
+      if (openWindows.length > 0) {
+        const target = openWindows[Math.floor(Math.random() * openWindows.length)];
+        setNotResponding(target);
+      }
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [windows]);
 
   const openWindow = useCallback((appId, extraProps = {}) => {
     const app = APPS.find((a) => a.id === appId);
@@ -189,6 +209,17 @@ export default function App() {
         onStartClick={() => setStartOpen(!startOpen)}
         startOpen={startOpen}
       />
+
+      {notResponding && (
+        <NotRespondingDialog
+          appTitle={notResponding.title}
+          onClose={() => {
+            closeWindow(notResponding.id);
+            setNotResponding(null);
+          }}
+          onWait={() => setNotResponding(null)}
+        />
+      )}
     </div>
   );
 }
