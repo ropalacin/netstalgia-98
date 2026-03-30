@@ -11,6 +11,7 @@ import FileExplorer from "./apps/FileExplorer";
 import RetroNavigator from "./apps/RetroNavigator";
 import Messenger from "./apps/Messenger";
 import Notepad from "./apps/Notepad";
+import RecycleBin from "./apps/RecycleBin";
 
 const APPS = [
   {
@@ -44,6 +45,14 @@ const APPS = [
     title: "readme.txt - Notepad",
     width: 420,
     height: 320,
+  },
+  {
+    id: "recyclebin",
+    label: "Recycle Bin",
+    emoji: "🗑️",
+    title: "Recycle Bin",
+    width: 580,
+    height: 420,
   },
 ];
 
@@ -154,6 +163,8 @@ export default function App() {
             }
           />
         );
+      case "recyclebin":
+        return <RecycleBin />;
       default:
         return null;
     }
