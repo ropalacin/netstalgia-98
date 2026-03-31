@@ -12,6 +12,7 @@ import RetroNavigator from "./apps/RetroNavigator";
 import Messenger from "./apps/Messenger";
 import Notepad from "./apps/Notepad";
 import RecycleBin from "./apps/RecycleBin";
+import TermsDialog from "./components/TermsDialog";
 
 const APPS = [
   {
@@ -62,6 +63,7 @@ export default function App() {
   const [windows, setWindows] = useState([]);
   const [startOpen, setStartOpen] = useState(false);
   const [notResponding, setNotResponding] = useState(null);
+  const [showTerms, setShowTerms] = useState(true);
   const errorShownRef = useRef(false);
 
   // Show "not responding" dialog once, randomly between 20-60s after first window opens
@@ -220,6 +222,10 @@ export default function App() {
         onStartClick={() => setStartOpen(!startOpen)}
         startOpen={startOpen}
       />
+
+      {showTerms && (
+        <TermsDialog onAccept={() => setShowTerms(false)} />
+      )}
 
       {notResponding && (
         <NotRespondingDialog
