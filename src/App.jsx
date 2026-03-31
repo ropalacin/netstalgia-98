@@ -14,6 +14,7 @@ import Notepad from "./apps/Notepad";
 import RecycleBin from "./apps/RecycleBin";
 import TermsDialog from "./components/TermsDialog";
 import DataConsole from "./components/DataConsole";
+import UnderConstruction from "./apps/UnderConstruction";
 
 const APPS = [
   {
@@ -55,6 +56,14 @@ const APPS = [
     title: "Recycle Bin",
     width: 580,
     height: 420,
+  },
+  {
+    id: "underconstruction",
+    label: "my_page.html",
+    emoji: "🚧",
+    title: "my_page.html — Under Construction",
+    width: 500,
+    height: 450,
   },
   {
     id: "dataconsole",
@@ -176,6 +185,8 @@ export default function App() {
         );
       case "recyclebin":
         return <RecycleBin />;
+      case "underconstruction":
+        return <UnderConstruction />;
       case "dataconsole":
         return <DataConsole />;
       default:
