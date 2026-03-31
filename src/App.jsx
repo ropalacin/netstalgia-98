@@ -13,6 +13,7 @@ import Messenger from "./apps/Messenger";
 import Notepad from "./apps/Notepad";
 import RecycleBin from "./apps/RecycleBin";
 import TermsDialog from "./components/TermsDialog";
+import DataConsole from "./components/DataConsole";
 
 const APPS = [
   {
@@ -54,6 +55,14 @@ const APPS = [
     title: "Recycle Bin",
     width: 580,
     height: 420,
+  },
+  {
+    id: "dataconsole",
+    label: "system32.exe",
+    emoji: "💀",
+    title: "C:\\WINDOWS\\system32\\surveillance.exe",
+    width: 520,
+    height: 340,
   },
 ];
 
@@ -167,6 +176,8 @@ export default function App() {
         );
       case "recyclebin":
         return <RecycleBin />;
+      case "dataconsole":
+        return <DataConsole />;
       default:
         return null;
     }
